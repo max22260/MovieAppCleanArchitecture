@@ -25,7 +25,7 @@ class FindMovieViewModel @Inject constructor(
         const val INIT_MOVIE_ID = 550L
         const val UI_PAGE_SIZE = 1
     }
-    private var currentMovie =   550L
+    private var currentMovie =   INIT_MOVIE_ID
     var isLoadingMoreAnimals: Boolean = false
 
     fun init() {
@@ -53,6 +53,9 @@ class FindMovieViewModel @Inject constructor(
         val exceptionHandler = viewModelScope.createExceptionHandler(errorMessage) { onFailure(it) }
         viewModelScope.launch(exceptionHandler) {
             getMovies().collect {
+                if (it.isEmpty()) {
+                    throw NoMoreMovieException("cannot fetch Movies !!")
+                }
                 _viewState.value = viewState.value.copy(loading = false, movies = it)
             }
         }
@@ -75,7 +78,10 @@ class FindMovieViewModel @Inject constructor(
 
         viewModelScope.launch {
             when (failure) {
-                is NetworkException, is NetworkUnavailableException -> {
+                is NetworkException -> {
+                    _viewEffects.emit(FindMoviesViewEffect.ShowNetworkConnectionError(failure.message.toString()))
+                }
+                is NetworkUnavailableException -> {
                     _viewEffects.emit(FindMoviesViewEffect.ShowError("No internet connection"))
                 }
                 is NoMoreMovieException -> {
