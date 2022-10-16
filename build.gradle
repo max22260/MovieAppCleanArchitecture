@@ -1,0 +1,76 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+
+   ext {
+       material_version = "1.5.0-alpha04"
+
+       //kotlin
+       kotlin_version = '1.4.20'
+
+       //ui
+       appcompat_version = "1.2.0"
+       constraint_layout_version = "2.0.4"
+
+       //testing
+       mockito_version = "3.5.15"
+       mockwebserver_version = "4.9.0"
+       robolectric_version = "4.4"
+       androidx_junit_version = "1.1.2"
+       androidx_core_testing_version = "2.1.0"
+       coroutines_test_version = "1.4.2"
+       espresso_version = "3.3.0"
+       fragment_testing_version = "1.2.5"
+
+       //cache
+       room_version = "2.4.3"
+
+       //di
+       hilt_version = "2.38.1"
+
+       //nav
+       nav_version = "2.5.1"
+
+       //networking
+       retrofit_version = "2.9.0"
+       okHttp_version = "4.9.0"
+       moshi_converter_version = '2.9.0'
+       moshi_version = '1.13.0'
+       glide_version = "4.11.0"
+
+       //material design
+       material_version = "1.5.0-alpha04"
+
+       //util
+       threetenabp_version = "1.2.4"
+       threetenbp_version = "1.3.8"
+   }
+
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+
+        classpath 'com.android.tools.build:gradle:4.1.1'
+      //  classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:kotlin_version'
+       classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+
+
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+
+
+}
+
+plugins {
+    id 'com.android.application' version '7.3.0' apply false
+    id 'com.android.library' version '7.3.0' apply false
+    id 'org.jetbrains.kotlin.android' version '1.7.10' apply false
+  //  id 'com.google.dagger.hilt.android' version '2.38.1' apply false
+}
