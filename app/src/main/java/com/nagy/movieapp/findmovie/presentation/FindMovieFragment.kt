@@ -45,12 +45,12 @@ class FindMovieFragment : Fragment() {
         requestInitialAnimalsList()
     }
 
-    private fun requestInitialAnimalsList() {
+    private fun requestInitialMoviesList() {
         viewModel.onEvent(FindMoviesEvent.RequestNextMovie)
     }
 
 
-    private fun requestMoreAnimals() {
+    private fun requestMoreMovies() {
         viewModel.onEvent(FindMoviesEvent.RequestNextMovie)
     }
 
