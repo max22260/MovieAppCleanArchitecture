@@ -30,8 +30,8 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         const val WORK_MANAGER_TAG = "WORK_MANAGER_TAG"
-        const val REPEAT_INTERVAL = 4L * 60L
-        const val STARTING_DELAY_TIME = 4L * 60L
+        const val REPEAT_INTERVAL = 2L
+        const val STARTING_DELAY_TIME = 1L
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

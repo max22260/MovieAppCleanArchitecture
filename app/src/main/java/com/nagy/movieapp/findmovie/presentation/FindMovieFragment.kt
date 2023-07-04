@@ -8,12 +8,10 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.SavedStateViewModelFactory
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-
 import com.google.android.material.snackbar.Snackbar
 import com.nagy.movieapp.R
 import com.nagy.movieapp.common.domain.model.movie.MovieDetails
@@ -21,7 +19,6 @@ import com.nagy.movieapp.databinding.FragmentFindMovieBinding
 import com.nagy.movieapp.findmovie.presentation.adapters.MovieClickListener
 import com.nagy.movieapp.findmovie.presentation.adapters.MoviesAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 
 @AndroidEntryPoint
 class FindMovieFragment : Fragment() {
@@ -32,7 +29,7 @@ class FindMovieFragment : Fragment() {
     private lateinit var alertDialog: AlertDialog.Builder
     private val viewModel: FindMovieViewModel  by viewModels()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentFindMovieBinding.inflate(inflater, container, false)
 
         return binding.root
