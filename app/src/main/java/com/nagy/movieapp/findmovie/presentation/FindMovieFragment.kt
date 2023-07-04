@@ -42,7 +42,7 @@ class FindMovieFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupUI()
-        requestInitialAnimalsList()
+        requestInitialMoviesList()
     }
 
     private fun requestInitialMoviesList() {
@@ -117,7 +117,7 @@ class FindMovieFragment : Fragment() {
             layoutManager,
             FindMovieViewModel.UI_PAGE_SIZE
         ) {
-            override fun loadMoreItems() { requestMoreAnimals() }
+            override fun loadMoreItems() { requestMoreMovies() }
             override fun isLoading(): Boolean = viewModel.isLoadingMoreAnimals
             override fun isLastPage(): Boolean = false
         }
